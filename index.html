@@ -1,9 +1,9 @@
-Create index.html
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>挪车通知</title>
 
   <style>
@@ -18,19 +18,19 @@ Create index.html
       justify-content: center;
       align-items: center;
       background: #f5f6f8;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                   "Microsoft YaHei", sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont,
+                   "Segoe UI", "Microsoft YaHei", sans-serif;
       color: #222;
     }
 
     .card {
       width: calc(100% - 32px);
       max-width: 420px;
-      background: white;
+      background: #fff;
       border-radius: 20px;
       padding: 40px 24px;
       text-align: center;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
     }
 
     .car {
@@ -43,13 +43,14 @@ Create index.html
       font-size: 28px;
     }
 
-    p {
+    .description {
       color: #666;
-      line-height: 1.7;
-      margin-bottom: 30px;
+      line-height: 1.8;
+      margin-bottom: 28px;
     }
 
-    button {
+    .call-button {
+      display: block;
       width: 100%;
       border: none;
       border-radius: 14px;
@@ -58,27 +59,28 @@ Create index.html
       font-weight: bold;
       color: white;
       background: #1677ff;
+      text-decoration: none;
       cursor: pointer;
     }
 
-    button:active {
+    .call-button:active {
       transform: scale(0.98);
     }
 
-    .tip {
+    .privacy {
       margin-top: 20px;
+      padding: 12px;
+      border-radius: 10px;
+      background: #f5f7fa;
+      color: #888;
       font-size: 13px;
-      color: #999;
+      line-height: 1.6;
     }
 
-    #result {
-      display: none;
-      margin-top: 24px;
-      padding: 15px;
-      border-radius: 12px;
-      background: #eaf7ee;
-      color: #208044;
-      line-height: 1.6;
+    .tip {
+      margin-top: 18px;
+      font-size: 13px;
+      color: #aaa;
     }
   </style>
 </head>
@@ -91,18 +93,19 @@ Create index.html
 
     <h1>挪车通知</h1>
 
-    <p>
+    <div class="description">
       您好，如果这辆车影响了您的出行，<br>
-      请点击下面按钮通知车主。
-    </p>
+      请联系车主协助挪车。
+    </div>
 
-    <button onclick="notifyOwner()">
-      🔔 通知车主
-    </button>
+    <!-- 把下面的电话号码改成你的手机号 -->
+    <a class="call-button" href="tel:19230856212">
+      📞 联系车主
+    </a>
 
-    <div id="result">
-      已发送挪车提醒。<br>
-      感谢您的提醒！
+    <div class="privacy">
+      点击后将直接拨打车主电话<br>
+      车主未接听时，请稍后再次联系
     </div>
 
     <div class="tip">
@@ -110,12 +113,6 @@ Create index.html
     </div>
 
   </div>
-
-  <script>
-    function notifyOwner() {
-      document.getElementById("result").style.display = "block";
-    }
-  </script>
 
 </body>
 </html>
